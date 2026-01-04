@@ -46,9 +46,10 @@ d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
 
   // costruire layout sankey
   const sankey = d3.sankey()
-    .nodeWidth(14)
-    .nodePadding(24)
-    .extent([[0, 0], [width, height]]);
+  .nodeId(d => d.name)   // ← 🔥 QUESTA RIGA MANCAVA
+  .nodeWidth(14)
+  .nodePadding(24)
+  .extent([[0, 0], [width, height]]);
 
   const graph = sankey({
     nodes: nodes.map(d => Object.assign({}, d)),

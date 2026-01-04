@@ -9,7 +9,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   background: #DADDD9;
   color: #0e3506;
-  height: 400vh; /* spazio scroll */
   margin: 0;
 
 }
@@ -29,8 +28,8 @@ body {
 
 /* MAP */
 .map-wrapper {
-  position: fixed;
-  inset: 0;
+ position: sticky;
+  top: 0;
   z-index: 1;
   width: 100vw;
   height: 100vh;
@@ -43,7 +42,7 @@ body {
 
 /* TEXT BOX */
 .box {
-  position: fixed;
+  position: sticky;
   top: 130px;
   left: 50%;
   transform: translateX(-50%);
@@ -91,6 +90,14 @@ body {
 .scroll-steps .step {
   height: 100vh;
 }
+
+.scroll-steps::after {
+  content: '';
+  display: block;
+  height: 100vh;
+}
+
+
 /* SANKEY */
 #sankey-section {
   position: relative;

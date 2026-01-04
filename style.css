@@ -1,17 +1,18 @@
+/* RESET */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
   background: #DADDD9;
   color: #0e3506;
-  height: 800vh; /* spazio per scroll */
+  height: 800vh; /* spazio scroll */
 }
 
-/* FIXED TITLE */
+/* TITLE */
 .fixed-title {
   position: fixed;
   top: 30px;
@@ -26,13 +27,12 @@ body {
 
 /* MAP */
 .map-wrapper {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
 }
 
-#map {
+#map-container svg {
   width: 100%;
   height: 100%;
 }
@@ -40,16 +40,16 @@ body {
 /* TEXT BOX */
 .box {
   position: fixed;
-  top: 130px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   max-width: 420px;
-  background: rgba(168, 173, 166, 0.6);
-  border-radius: 10px;
   padding: 16px;
   font-size: 14px;
   line-height: 1.4;
-  z-index: 9;
+  background: rgba(168, 173, 166, 0.6);
+  border-radius: 10px;
+  z-index: 5;
   transition: opacity 0.6s ease;
 }
 
@@ -78,28 +78,25 @@ body {
 .black { background: #000000; }
 .cinnamon { background: #1bd600; }
 
-/* SCROLL TRIGGERS */
+/* SCROLL STEPS */
+.scroll-steps {
+  position: relative;
+  z-index: 2;
+}
+
 .scroll-steps .step {
   height: 100vh;
 }
-
-.scroll-steps .spacer {
-  height: 100vh;
-}
-
 
 /* MOBILE */
 @media (max-width: 768px) {
   .fixed-title {
     position: relative;
-    top: auto;
-    left: auto;
     padding: 20px;
   }
 
   .box {
     top: auto;
     bottom: 20px;
-    transform: translateX(-50%);
   }
 }

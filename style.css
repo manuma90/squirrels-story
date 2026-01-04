@@ -10,6 +10,8 @@ body {
   background: #DADDD9;
   color: #0e3506;
   height: 400vh; /* spazio scroll */
+  margin: 0;
+
 }
 
 /* TITLE */

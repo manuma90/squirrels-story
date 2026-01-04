@@ -109,5 +109,15 @@ body {
 
     transform-origin: center center;
   }
+    .box {
+    top: 80px;          /* un po’ più su su mobile */
+    left: 20px;         /* allineato a sinistra */
+    font-size: 12px;
+    right: auto;
+
+    max-width: 300px;
+
+    transform: none;    /* IMPORTANTISSIMO */
+  }
 
 }

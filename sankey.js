@@ -16,26 +16,23 @@ d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
   const nodes = [];
   const links = [];
 
-  function getNode(name) {
-    if (name === undefined || name === null || name === '') return null;
-
-    let node = nodes.find(d => d.name === name);
-    if (!node) {
-      node = { name };
-      nodes.push(node);
-    }
-    return node;
-  }
-
+  // 1️⃣ Costruisci la lista dei nodi (UNICI)
   data.forEach(d => {
-    const source = getNode(d.source);
-    const target = getNode(d.target);
-    const value = +d.value;
+    if (!nodes.find(n => n.name === d.source)) {
+      nodes.push({ name: d.source });
+    }
+    if (!nodes.find(n => n.name === d.target)) {
+      nodes.push({ name: d.target });
+    }
+  });
 
-    if (source && target && !isNaN(value)) {
+  // 2️⃣ Costruisci i link usando STRINGHE
+  data.forEach(d => {
+    const value = +d.value;
+    if (!isNaN(value)) {
       links.push({
-        source,
-        target,
+        source: d.source,
+        target: d.target,
         value
       });
     }
@@ -44,19 +41,19 @@ d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
   console.log('Nodes:', nodes);
   console.log('Links:', links);
 
-  // costruire layout sankey
+  // 3️⃣ Costruire layout sankey
   const sankey = d3.sankey()
-  .nodeId(d => d.name)   // ← 🔥 QUESTA RIGA MANCAVA
-  .nodeWidth(14)
-  .nodePadding(24)
-  .extent([[0, 0], [width, height]]);
+    .nodeId(d => d.name)     // 🔑 FONDAMENTALE
+    .nodeWidth(14)
+    .nodePadding(24)
+    .extent([[0, 0], [width, height]]);
 
   const graph = sankey({
-    nodes: nodes.map(d => Object.assign({}, d)),
-    links: links.map(d => Object.assign({}, d))
+    nodes: nodes.map(d => ({ ...d })),
+    links: links.map(d => ({ ...d }))
   });
 
-  // disegnare i link (flussi)
+  // 4️⃣ Disegnare i link (flussi)
   svg.append('g')
     .selectAll('path')
     .data(graph.links)
@@ -71,7 +68,7 @@ d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
     .attr('stroke-width', d => Math.max(1, d.width))
     .attr('opacity', 0.9);
 
-  // disegnare i nodi
+  // 5️⃣ Disegnare i nodi
   const node = svg.append('g')
     .selectAll('g')
     .data(graph.nodes)
@@ -84,7 +81,7 @@ d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
     .attr('width', d => d.x1 - d.x0)
     .attr('fill', '#000');
 
-  // etichette
+  // 6️⃣ Etichette
   node.append('text')
     .attr('x', d => d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6)
     .attr('y', d => (d.y0 + d.y1) / 2)
@@ -95,7 +92,7 @@ d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
     .style('font-size', '14px')
     .style('fill', '#0e3506');
 
-  // valori numerici
+  // 7️⃣ Valori numerici
   node.append('text')
     .attr('x', d => (d.x0 + d.x1) / 2)
     .attr('y', d => (d.y0 + d.y1) / 2)

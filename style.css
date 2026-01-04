@@ -107,6 +107,7 @@ body {
 
 .section-title {
   font-family: 'Open Sans', sans-serif;
+  left: 30px;
   font-size: 20px;
   font-weight: 700;
   color: #0e3506;

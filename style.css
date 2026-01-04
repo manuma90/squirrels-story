@@ -98,6 +98,11 @@ body {
   /* Wrapper della mappa */
   .map-wrapper {
     overflow: hidden;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+}
   }
 
   /* Contenitore SVG */

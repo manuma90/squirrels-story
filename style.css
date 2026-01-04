@@ -8,7 +8,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   background: #DADDD9;
   color: #0e3506;
-  height: 600vh; /* spazio per scroll */
+  height: 800vh; /* spazio per scroll */
 }
 
 /* FIXED TITLE */
@@ -29,7 +29,7 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
-  width: 200vw;
+  width: 100vw;
 }
 
 #map {

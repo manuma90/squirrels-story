@@ -109,6 +109,8 @@ body {
   #map-container {
     width: 100vh;
     height: 100vw;
+    position: absolute;
+  
 
    
     top: 50%;

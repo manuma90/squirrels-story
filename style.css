@@ -83,6 +83,11 @@ body {
   height: 100vh;
 }
 
+.scroll-steps .spacer {
+  height: 100vh;
+}
+
+
 /* MOBILE */
 @media (max-width: 768px) {
   .fixed-title {

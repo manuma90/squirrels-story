@@ -12,10 +12,14 @@ const svg = d3.select('#sankey-container')
 
 d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
 
+  console.log('First row:', data[0]); // 👈 DEBUG FONDAMENTALE
+
   const nodes = [];
   const links = [];
 
   function getNode(name) {
+    if (!name) return null; // 👈 protezione extra
+
     let node = nodes.find(d => d.name === name);
     if (!node) {
       node = { name };
@@ -24,17 +28,32 @@ d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
     return node;
   }
 
-
   data.forEach(d => {
-    const source = getNode(d.source);
-    const target = getNode(d.target);
 
-    links.push({
-      source,
-      target,
-      value: +d.value
-    });
+    // ⚠️ ADATTA QUESTE TRE RIGHE SE I NOMI DEL CSV SONO DIVERSI
+    const sourceName = d.source || d.Source;
+    const targetName = d.target || d.Target;
+    const value = +d.value || +d.Value;
+
+    const source = getNode(sourceName);
+    const target = getNode(targetName);
+
+    if (source && target && value) {
+      links.push({
+        source,
+        target,
+        value
+      });
+    }
   });
+
+  console.log('Nodes:', nodes);
+  console.log('Links:', links);
+
+  // 👉 QUI sotto continuerà il codice del sankey (layout, svg, ecc.)
+
+});
+
 
 // costruire layout sankey
 

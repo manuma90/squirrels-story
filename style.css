@@ -8,7 +8,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   background: #DADDD9;
   color: #0e3506;
-  height: 400vh; /* spazio per scroll */
+  height: 600vh; /* spazio per scroll */
 }
 
 /* FIXED TITLE */

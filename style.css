@@ -103,19 +103,19 @@ body {
     width: 120vh;
 
     transform:
-      translate(-45%, -50%)  /* 👈 spostamento a destra */
+      translate(-41%, -50%)  /* 👈 spostamento a destra */
       rotate(-90deg)
-      scale(1.15);
+      scale(0.85);
 
     transform-origin: center center;
   }
     .box {
     top: 150px;          /* un po’ più su su mobile */
-    left: 20px;         /* allineato a sinistra */
+    left: 15px;         /* allineato a sinistra */
     font-size: 12px;
     right: auto;
 
-    max-width: 300px;
+    max-width: 150px;
 
     transform: none;    /* IMPORTANTISSIMO */
   }

@@ -91,6 +91,27 @@ body {
 .scroll-steps .step {
   height: 100vh;
 }
+/* SANKEY */
+#sankey-section {
+  position: relative;
+  background: #DADDD9;
+  padding: 120px 40px 160px 40px;
+}
+
+.section-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #0e3506;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+#sankey-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 
 /* MOBILE */
 @media (max-width: 768px) {

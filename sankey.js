@@ -53,7 +53,7 @@ d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
     links: links.map(d => ({ ...d }))
   });
 
-  // 4️⃣ Disegnare i link (flussi)
+// 4️⃣ Disegnare i link (flussi)
 const links = svg.append('g')
   .selectAll('path')
   .data(graph.links)
@@ -61,10 +61,9 @@ const links = svg.append('g')
   .attr('class', d => `link source-${d.source.name.toLowerCase()}`)
   .attr('d', d3.sankeyLinkHorizontal())
   .attr('fill', 'none')
-  .attr('stroke', '#A8ADA6')        // tutto grigio di default
+  .attr('stroke', '#A8ADA6')
   .attr('stroke-width', d => Math.max(1, d.width))
-  .attr('opacity', 0.25)
-  .attr('mix-blend-mode', 'multiply');
+  .attr('opacity', 0.4);   // 👈 non 0.25
 
   // 5️⃣ Disegnare i nodi
   const node = svg.append('g')

@@ -97,6 +97,10 @@ body {
   height: 100vh;
 }
 
+#map-story {
+  position: relative;
+  min-height: 500vh;
+}
 
 /* SANKEY */
 #sankey-section {

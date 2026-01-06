@@ -28,10 +28,23 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: #a8ada6; /* grigino che usi già */
-  opacity: 0.6;
+  background: #ffffff;
+  opacity: 0.6;          /* 👈 opacità mantenuta */
   z-index: -1;
 }
+
+/* hairline sotto */
+.fixed-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #000000;
+  opacity: 0.15;         /* sottile, non invasivo */
+}
+
 
 .fixed-title h1 {
   font-size: 30px;

@@ -47,9 +47,7 @@ body {
   height: 100vh;
 }
 
-#map-story {
-  overflow: hidden;
-}
+
 
 #map-story {
   position: relative;

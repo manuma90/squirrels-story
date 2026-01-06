@@ -16,9 +16,21 @@ body {
 /* TITLE */
 .fixed-title {
   position: fixed;
-  top: 30px;
-  left: 30px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 30px 30px; /* spazio sopra e sotto */
   z-index: 10;
+}
+
+/* FONDINO */
+.fixed-title::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #a8ada6; /* grigino che usi già */
+  opacity: 0.6;
+  z-index: -1;
 }
 
 .fixed-title h1 {

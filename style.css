@@ -127,6 +127,11 @@ body {
   padding: 120px 40px 160px 40px;
 }
 
+#sankey-section {
+  position: relative;
+  z-index: 3;
+}
+
 .section-title {
   font-family: 'Open Sans', sans-serif;
   left: 30px;

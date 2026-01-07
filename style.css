@@ -130,7 +130,9 @@ body {
   height: 100vh;
 }
 
-
+#end-of-map {
+  height: 1px;
+}
 
 /* SANKEY */
 #sankey-section {

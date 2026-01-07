@@ -1,9 +1,10 @@
+// Mobile
+const isMobile = window.innerWidth < 768;
+
 // Setup base D3 Sankey
 const width = 1200;
 const height = isMobile ? 900 : 500;
 
-// Mobile
-const isMobile = window.innerWidth < 768;
 
 const svg = d3.select('#sankey-container')
   .append('svg')

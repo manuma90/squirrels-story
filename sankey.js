@@ -2,6 +2,9 @@
 const width = 1200;
 const height = 500;
 
+// Mobile
+const isMobile = window.innerWidth < 768;
+
 const svg = d3.select('#sankey-container')
   .append('svg')
   .attr('viewBox', `0 0 ${width} ${height}`)

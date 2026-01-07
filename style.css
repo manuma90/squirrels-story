@@ -29,7 +29,7 @@ body {
   position: absolute;
   inset: 0;
   background: #ffffff;
-  opacity: 0.6;          /* 👈 opacità mantenuta */
+  opacity: 0.8;          /* 👈 opacità mantenuta */
   z-index: -1;
 }
 
@@ -42,6 +42,7 @@ body {
   bottom: 0;
   height: 1px;           /* hairline */
   background: #000000;  /* nero pieno */
+  opacity: 0.8; 
 }
 
 

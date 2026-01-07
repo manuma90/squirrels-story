@@ -48,8 +48,8 @@ d3.csv('assets/data/Sankey_ColorAgeBehavior.csv').then(data => {
   // 3️⃣ Costruire layout sankey
   const sankey = d3.sankey()
     .nodeId(d => d.name)     // 🔑 FONDAMENTALE
-    .nodeWidth(14)
-    .nodePadding(24)
+    .nodeWidth(isMobile ? 18 : 14)
+    .nodePadding(isMobile ? 40 : 24)
     .extent([[0, 0], [width, height]]);
 
   const graph = sankey({

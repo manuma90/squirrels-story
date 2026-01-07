@@ -98,3 +98,21 @@ fetch('assets/prova-web-ok.svg')
   })
   .catch(err => console.error('SVG load error:', err));
 
+ // ultimo box sparisce alla fine della map-story
+
+const endOfMap = document.getElementById('end-of-map');
+
+const endObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // siamo usciti dalla mappa → nascondi il box
+      textBox.classList.add('hidden');
+    }
+  });
+}, {
+  threshold: 0
+});
+
+endObserver.observe(endOfMap);
+
+

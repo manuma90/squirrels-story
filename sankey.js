@@ -90,7 +90,7 @@ const linkPaths = svg.append('g')
     .attr('text-anchor', d => d.x0 < width / 2 ? 'start' : 'end')
     .text(d => d.name)
     .style('font-family', 'Open Sans')
-    .style('font-size', '14px')
+    .style('font-size', isMobile ? '20px' : '14px')
     .style('fill', '#0e3506');
 
   // 7️⃣ Valori numerici
@@ -100,7 +100,7 @@ const linkPaths = svg.append('g')
     .attr('text-anchor', 'middle')
     .text(d => d.value)
     .style('font-family', 'Open Sans')
-    .style('font-size', '12px')
+    .style('font-size', isMobile ? '20px' : '14px')
     .style('fill', '#ffffff')
     .style('pointer-events', 'none');
 

@@ -1,6 +1,6 @@
 // Setup base D3 Sankey
 const width = 1200;
-const height = 500;
+const height = isMobile ? 900 : 500;
 
 // Mobile
 const isMobile = window.innerWidth < 768;
